@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chatbot — GramSeva AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stripe"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/><line x1="10" y1="3" x2="10" y2="17" stroke="white" stroke-width="1"/><line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1"/></svg></div>
+      <div><div class="logo-en">Gram<span>Seva</span> AI</div><div class="logo-hi">भारत की आवाज़, AI की शक्ति</div></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="chatbot.html"><b>AI Chatbot</b></a>
+      <a href="panchayat.html"><b>Panchayat</b></a>
+      <a href="crop.html"><b>Crop AI</b></a>
+      <a href="health.html"><b>Health</b></a>
+      <a href="literacy.html"><b>Literacy</b></a>
+      <a href="market.html"><b>Marketplace</b></a>
+      <a href="disaster.html"><b>Alerts</b></a>
+      <a href="women.html"><b>Women</b></a>
+      <a href="schemes.html"><b>Schemes</b></a>
+      <a href="shg.html"><b>SHG</b></a>
+      <a href="legal.html"><b>Legal Aid</b></a>
+      <a href="emergency.html"><b>Emergency</b></a>
+    </div>
+    <button class="nav-cta" onclick="openModal('download')">Download App</button>
+    <a href="index.html" class="nav-cta">Home</a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page">
+
+<section class="hero hero--chatbot">
+  <div class="hero-inner fu">
+    <!-- <a href="index.html" class="back-btn"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>Back to Home</a> -->
+    <span class="bdg bdg--hero">AI Assistant</span>
+    <h1 class="text-white">Multilingual AI Chatbot</h1>
+    <p class="lead lead--white">Voice-first AI support in 22 Indian languages. Ask anything about government schemes, rights, farming, health — works offline for 500+ common queries using on-device AI.</p>
+    <div class="stat-row">
+      <div><div class="stat-num">22+</div><div class="stat-lbl">Languages supported</div></div>
+      <div><div class="stat-num">500+</div><div class="stat-lbl">Offline queries</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-lbl">Voice accuracy</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-in">
+    <div class="two-col">
+      <div>
+        <div class="stag text-sf">Live Demo</div>
+        <h2>Choose your language & chat</h2>
+        <p class="mt-4 mb-16" style="font-size:14px;color:var(--i70)">Select a language below. The AI responds in your chosen language.</p>
+        <div class="auto-grid-xs mb-20" id="lgrid"></div>
+        <div class="chat-wrap">
+          <div class="chat-header">
+            <div class="chat-header-title" id="cbt">GramSeva AI — हिंदी</div>
+            <div class="chat-header-sub">Voice · Text · Offline capable</div>
+          </div>
+          <div class="chat-msgs" id="cbmsgs">
+            <div class="chat-bubble chat-bubble--bot" id="cbgreet">नमस्ते! मैं GramSeva AI हूँ। राशन, किसान, स्वास्थ्य, कानून — कुछ भी पूछें।</div>
+          </div>
+          <div class="chat-input-row">
+            <div class="chat-mic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--i70)" stroke-width="1.5"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10c0 3.9 3.1 7 7 7s7-3.1 7-7M12 19v3"/></svg></div>
+            <input id="cbi" class="chat-input" placeholder="अपना सवाल यहाँ लिखें..." onkeydown="if(event.key==='Enter')cbSend()">
+            <button onclick="cbSend()" class="chat-send">Send</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="stag text-sf">How it works</div>
+        <h2>Voice to answer in seconds</h2>
+        <div class="step-list mt-16">
+          <div class="step"><div class="snum">01</div><div><div class="stitle">Speak or type in your language</div><div class="sdesc">Use the mic button for voice input or type in any of 22 Indian languages. BHASHINI powers real-time speech-to-text.</div></div></div>
+          <div class="step"><div class="snum">02</div><div><div class="stitle">AI understands your intent</div><div class="sdesc">GramGen AI classifies your query — ration, farming, health, legal, scheme — and retrieves the right answer.</div></div></div>
+          <div class="step"><div class="snum">03</div><div><div class="stitle">Clear answer in your language</div><div class="sdesc">Response is read aloud by BHASHINI TTS. For complex issues, you are routed to the right module or helpline.</div></div></div>
+          <div class="step"><div class="snum">04</div><div><div class="stitle">Works without internet</div><div class="sdesc">500+ common queries answered offline using TF Lite on-device model. Syncs when connectivity returns.</div></div></div>
+        </div>
+        <div class="btn-row"><a href="schemes.html" class="btn btn-p">Check Schemes ↗</a><a href="legal.html" class="btn btn-s">Legal Aid ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--white sec--no-top">
+  <div class="sec-in">
+    <h2>Sample questions — click to try</h2>
+    <div class="auto-grid mt-20" id="sqgrid"></div>
+  </div>
+</section>
+
+</div>
+<footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/></svg></div><span class="foot-logo-name">Gram<span>Seva</span> AI</span></div><p>Empowering villages through AI. Built in India, for every Indian village.</p><div class="foot-hi">भारत की आवाज़, AI की शक्ति</div></div>
+      <div class="foot-col"><h4>Services</h4><a href="chatbot.html">AI Chatbot</a><a href="panchayat.html">Panchayat Portal</a><a href="crop.html">Crop AI</a><a href="health.html">Telemedicine</a><a href="legal.html">Legal Aid</a></div>
+      <div class="foot-col"><h4>Features</h4><a href="market.html">Village Marketplace</a><a href="shg.html">SHG Finance</a><a href="schemes.html">Scheme Eligibility</a><a href="disaster.html">Disaster Alerts</a><a href="women.html">Women Safety</a></div>
+      <div class="foot-col"><h4>About</h4><a href="#">Our Mission</a><a href="#">Team</a><a href="#">Investors</a><a href="#">Privacy Policy</a><a href="#">GramSeva.ai</a></div>
+    </div>
+    <div class="foot-bot"><p>© 2025 GramSeva AI · GramSeva.ai · GramSeva.in</p><p>Made with pride in India 🇮🇳</p></div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){const l=document.getElementById('navLinks'),b=document.getElementById('navToggle');l.classList.toggle('mobile');l.classList.toggle('show');b.classList.toggle('active');}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{const l=document.getElementById('navLinks'),b=document.getElementById('navToggle');if(l.classList.contains('mobile')){l.classList.remove('show');b.classList.remove('active');}}));
+const LANGS=[{c:'hi',n:'हिंदी',e:'Hindi',g:'नमस्ते! मैं GramSeva AI हूँ। राशन, किसान, स्वास्थ्य, कानून — कुछ भी पूछें।'},{c:'ta',n:'தமிழ்',e:'Tamil',g:'வணக்கம்! GramSeva AI நான். நான் உங்களுக்கு எப்படி உதவலாம்?'},{c:'te',n:'తెలుగు',e:'Telugu',g:'నమస్కారం! నేను GramSeva AI.'},{c:'mr',n:'मराठी',e:'Marathi',g:'नमस्कार! मी GramSeva AI.'},{c:'bn',n:'বাংলা',e:'Bengali',g:'নমস্কার! আমি GramSeva AI।'},{c:'bh',n:'भोजपुरी',e:'Bhojpuri',g:'प्रणाम! हम GramSeva AI बानी।'},{c:'gu',n:'ગુજરાતી',e:'Gujarati',g:'નમસ્તે! હું GramSeva AI.'},{c:'kn',n:'ಕನ್ನಡ',e:'Kannada',g:'ನಮಸ್ಕಾರ! ನಾನು GramSeva AI.'},{c:'ml',n:'മലയാളം',e:'Malayalam',g:'നമസ്കാരം! ഞാൻ GramSeva AI.'},{c:'pa',n:'ਪੰਜਾਬੀ',e:'Punjabi',g:'ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ GramSeva AI ਹਾਂ।'},{c:'od',n:'ଓଡ଼ିଆ',e:'Odia',g:'ନମସ୍କାର! ମୁଁ GramSeva AI।'},{c:'as',n:'অসমীয়া',e:'Assamese',g:'নমস্কাৰ! মই GramSeva AI।'},{c:'ur',n:'اردو',e:'Urdu',g:'السلام علیکم! میں GramSeva AI ہوں۔'},{c:'en',n:'English',e:'English',g:'Hello! I am GramSeva AI. How can I help you today?'}];
+const BR=['आपके PM-Kisan के लिए ₹6,000/वर्ष मिल सकता है।','आपके क्षेत्र में 3 दिन में 60% बारिश। सिंचाई रोकें।','राशन कार्ड सक्रिय है। 35 kg चावल आवंटित।','Ayushman के तहत ₹5 लाख का कवर उपलब्ध।','RTI दाखिल करने में मैं मदद कर सकता हूँ।'];
+let n=0,cl=0;
+const SQ=[{q:'PM-Kisan registration kaise karein?',c:'Agriculture'},{q:'Ration card mein naam kaise jodein?',c:'Governance'},{q:'MNREGA ka paisa kab aayega?',c:'Labour'},{q:'Ayushman card kaise banaye?',c:'Health'},{q:'Zameen ka batwara kaise hota hai?',c:'Legal'},{q:'Fasal bima claim kaise karein?',c:'Agriculture'},{q:'Online thagee ki report kahan karein?',c:'Cyber'},{q:'Beti Bachao form kahan milega?',c:'Schemes'}];
+window.addEventListener('DOMContentLoaded',()=>{
+  const g=document.getElementById('lgrid');
+  LANGS.forEach((l,i)=>{const d=document.createElement('div');d.style.cssText=`background:white;border:1.5px solid ${i===0?'var(--sf)':'var(--i15)'};border-radius:9px;padding:10px 12px;cursor:pointer;text-align:center;transition:all .15s`;d.innerHTML=`<div style="font-size:15px;font-weight:500;color:var(--ink)">${l.n}</div><div style="font-size:10px;color:var(--i40)">${l.e}</div>`;d.onclick=()=>{g.querySelectorAll('div').forEach(x=>x.style.borderColor='var(--i15)');d.style.borderColor='var(--sf)';cl=i;document.getElementById('cbt').textContent='GramSeva AI — '+l.n;document.getElementById('cbgreet').textContent=l.g;const m=document.getElementById('cbmsgs');Array.from(m.children).forEach((x,j)=>{if(j>0)x.remove();});};g.appendChild(d);});
+  const sq=document.getElementById('sqgrid');
+  SQ.forEach(q=>{const d=document.createElement('div');d.style.cssText='background:white;border:1px solid var(--i15);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .15s';d.innerHTML=`<div style="font-size:10px;font-weight:500;color:var(--sf);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">${q.c}</div><div style="font-size:14px;color:var(--ink);font-style:italic">"${q.q}"</div>`;d.onmouseover=()=>d.style.borderColor='var(--sf)';d.onmouseout=()=>d.style.borderColor='var(--i15)';d.onclick=()=>{document.getElementById('cbi').value=q.q;cbSend();};sq.appendChild(d);});
+});
+function cbSend(){const i=document.getElementById('cbi'),m=document.getElementById('cbmsgs');if(!i.value.trim())return;const u=document.createElement('div');u.className='chat-bubble chat-bubble--user';u.textContent=i.value;m.appendChild(u);i.value='';const t=document.createElement('div');t.className='chat-bubble chat-bubble--bot';t.textContent='...';m.appendChild(t);m.scrollTop=m.scrollHeight;setTimeout(()=>{t.textContent=BR[n%BR.length];n++;m.scrollTop=m.scrollHeight;},1200);}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

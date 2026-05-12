@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanoon Sahayak — Legal Aid — GramSeva AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stripe"></div><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/><line x1="10" y1="3" x2="10" y2="17" stroke="white" stroke-width="1"/><line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1"/></svg></div>
+      <div><div class="logo-en">Gram<span>Seva</span> AI</div><div class="logo-hi">भारत की आवाज़, AI की शक्ति</div></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="chatbot.html"><b>AI Chatbot</b></a>
+      <a href="panchayat.html"><b>Panchayat</b></a>
+      <a href="crop.html"><b>Crop AI</b></a>
+      <a href="health.html"><b>Health</b></a>
+      <a href="literacy.html"><b>Literacy</b></a>
+      <a href="market.html"><b>Marketplace</b></a>
+      <a href="disaster.html"><b>Alerts</b></a>
+      <a href="women.html"><b>Women</b></a>
+      <a href="schemes.html"><b>Schemes</b></a>
+      <a href="shg.html"><b>SHG</b></a>
+      <a href="legal.html"><b>Legal Aid</b></a>
+      <a href="emergency.html"><b>Emergency</b></a>
+    </div>
+    <button class="nav-cta" onclick="openModal('download')">Download App</button>
+</nav>
+<div class="page">
+<section class="hero hero--legal">
+  <div class="hero-inner fu">
+    <span class="bdg bdg--hero">Legal Aid</span>
+    <h1 class="text-white">Kanoon Sahayak</h1>
+    <p class="lead lead--white-faint">AI-powered legal aid in your language — RTI applications, land rights, MNREGA, domestic violence, and free lawyer connect through DLSA.</p>
+    <div class="info-box--legal-warn">GramSeva AI provides legal information, not legal advice. For legal advice, use the Free DLSA Lawyer Connect (15100).</div>
+  </div>
+</section>
+<section class="sec"><div class="sec-in"><div class="two-col">
+  <div>
+    <div class="stag text-legal">Know Your Rights</div><h2>Your rights in plain language</h2>
+    <div id="rlist" class="mt-16 feat-list"></div>
+  </div>
+  <div>
+    <div class="stag text-legal">RTI Generator</div><h2>Draft an RTI application</h2>
+    <div class="panel mt-16">
+      <div class="panel-body">
+        <div class="ig"><label>Department / authority</label>
+          <select id="rd"><option value="">Select department...</option><option value="PDS">Public Distribution System (Ration)</option><option value="MNREGA">MNREGA / Rural Development Agency</option><option value="Revenue">District Revenue Office / Tehsildar</option><option value="Police">Superintendent of Police Office</option><option value="Panchayat">Gram Panchayat / Block Development Officer</option></select>
+        </div>
+        <div class="ig"><label>What information do you need?</label><textarea id="rq" placeholder="e.g. Why was my ration card cancelled and who approved the cancellation?"></textarea></div>
+        <div class="ig"><label>Your full name and address</label><input type="text" id="rn" placeholder="Ramesh Kumar, Vill. Chandpur, Varanasi, UP 221001"></div>
+        <button class="btn btn-legal btn-full" onclick="genRTI()">Generate RTI Application</button>
+        <div id="rout" class="hidden mt-12">
+          <div class="rti-out" id="rtxt"></div>
+          <button class="btn btn-s btn-sm mt-8" onclick="cpyRTI()">Copy to clipboard</button>
+        </div>
+      </div>
+    </div>
+    <div class="info-box--nv mt-14">
+      <div class="info-box-title info-box-title--nv">Free legal aid — NALSA</div>
+      <div class="info-box-body mt-4">All SC/ST, women, children, disabled persons, and anyone earning below ₹1 lakh/year are entitled to completely free legal aid. Call: <strong>15100</strong></div>
+    </div>
+  </div>
+</div></div></section>
+<script>
+const RD=[{t:'Right to Information (RTI)',l:'RTI Act, 2005',d:'Any citizen can seek information from any public authority within 30 days. Fee: ₹10. BPL cardholders: free. If denied, appeal to First Appellate Authority free of cost.'},{t:'Right to free legal aid',l:'Legal Services Authorities Act, 1987',d:'SC/ST, women, children, disabled, and anyone below ₹1 lakh/year income entitled to free legal aid from DLSA. Call 15100.'},{t:'Right against forced eviction',l:'Article 300A, Constitution',d:'No person can be deprived of property without authority of law. 3 months notice and fair compensation are mandatory even on government land.'},{t:'Right to minimum wages',l:'Minimum Wages Act, 1948',d:'Every employer must pay state-notified minimum wage. Non-payment is a criminal offence. File complaint with Labour Commissioner — no court fee.'},{t:'Right to register FIR',l:'Section 154 CrPC',d:'Police must register FIR for cognizable offences. If refused, send FIR by registered post to SP or approach Judicial Magistrate under Section 156(3).'},{t:'Right to MNREGA work & payment',l:'MNREGA Act, 2005',d:'Every rural household is entitled to 100 days of guaranteed employment. Non-payment within 15 days from work completion triggers compensation.'}];
+function buildRD(){const g=document.getElementById('rlist');RD.forEach(r=>{const d=document.createElement('div');d.className='fi';let open=false;d.innerHTML=`<div style="flex:1"><div class="ft">${r.t}</div><div class="fb" style="font-size:10px;color:var(--nv);font-weight:500">${r.l}</div><div class="fb mt-8" style="display:none" class="body">${r.d}</div></div>`;d.style.cursor='pointer';d.onclick=()=>{const b=d.querySelector('.fb:last-child');open=!open;b.style.display=open?'block':'none';};g.appendChild(d);});}
+function genRTI(){const dep=document.getElementById('rd').value,q=document.getElementById('rq').value.trim(),n=document.getElementById('rn').value.trim();if(!dep||!q||!n){alert('Please fill all fields.');return;}const dt=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});const txt=`To,\nThe Public Information Officer,\n${dep} Department\n\nSubject: Application under RTI Act, 2005\n\nRespected Sir/Madam,\n\nI, ${n}, hereby request the following information under Section 6 of the Right to Information Act, 2005:\n\nINFORMATION REQUESTED:\n${q}\n\nI declare this information is not covered under Section 8 and 9 of the RTI Act, 2005.\n\nKindly provide the information within 30 days as per Section 7(1) of the RTI Act, 2005.\n\nI am enclosing a fee of ₹10/- as applicable.\n\nYours faithfully,\n\n${n}\n\nDate: ${dt}\n\n(Note: BPL cardholders are exempt from all RTI fees.)`;document.getElementById('rtxt').textContent=txt;document.getElementById('rout').classList.remove('hidden');}
+function cpyRTI(){navigator.clipboard.writeText(document.getElementById('rtxt').textContent).then(()=>alert('RTI application copied!'));}
+buildRD();
+</script>
+</div><footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/></svg></div><span class="foot-logo-name">Gram<span>Seva</span> AI</span></div><p>Empowering villages through AI. Built in India, for every Indian village.</p><div class="foot-hi">भारत की आवाज़, AI की शक्ति</div></div>
+      <div class="foot-col"><h4>Services</h4><a href="chatbot.html">AI Chatbot</a><a href="panchayat.html">Panchayat Portal</a><a href="crop.html">Crop AI</a><a href="health.html">Telemedicine</a><a href="legal.html">Legal Aid</a></div>
+      <div class="foot-col"><h4>Features</h4><a href="market.html">Village Marketplace</a><a href="shg.html">SHG Finance</a><a href="schemes.html">Scheme Eligibility</a><a href="disaster.html">Disaster Alerts</a><a href="women.html">Women Safety</a></div>
+      <div class="foot-col"><h4>About</h4><a href="#">Our Mission</a><a href="#">Team</a><a href="#">Investors</a><a href="#">Privacy Policy</a><a href="#">GramSeva.ai</a></div>
+    </div>
+    <div class="foot-bot"><p>© 2025 GramSeva AI · GramSeva.ai · GramSeva.in</p><p>Made with pride in India 🇮🇳</p></div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHG Finance — GramSeva AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stripe"></div><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/><line x1="10" y1="3" x2="10" y2="17" stroke="white" stroke-width="1"/><line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1"/></svg></div>
+      <div><div class="logo-en">Gram<span>Seva</span> AI</div><div class="logo-hi">भारत की आवाज़, AI की शक्ति</div></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="chatbot.html"><b>AI Chatbot</b></a>
+      <a href="panchayat.html"><b>Panchayat</b></a>
+      <a href="crop.html"><b>Crop AI</b></a>
+      <a href="health.html"><b>Health</b></a>
+      <a href="literacy.html"><b>Literacy</b></a>
+      <a href="market.html"><b>Marketplace</b></a>
+      <a href="disaster.html"><b>Alerts</b></a>
+      <a href="women.html"><b>Women</b></a>
+      <a href="schemes.html"><b>Schemes</b></a>
+      <a href="shg.html"><b>SHG</b></a>
+      <a href="legal.html"><b>Legal Aid</b></a>
+      <a href="emergency.html"><b>Emergency</b></a>
+    </div>
+    <button class="nav-cta" onclick="openModal('download')">Download App</button>
+</nav>
+<div class="page">
+<section class="hero hero--shg">
+  <div class="hero-inner fu">
+    <span class="bdg bdg--hero">Microfinance</span>
+    <h1 class="text-white">SHG — Self Help Group Finance</h1>
+    <p class="lead lead--white">Digital savings ledger, UPI auto-collection, NABARD loan applications, and credit score building for rural women's Self Help Groups.</p>
+    <div class="stat-row">
+      <div><div class="stat-num">12L+</div><div class="stat-lbl">Active SHGs in India</div></div>
+      <div><div class="stat-num">97%</div><div class="stat-lbl">SHG loan repayment rate</div></div>
+      <div><div class="stat-num">3×</div><div class="stat-lbl">Corpus = NABARD loan</div></div>
+    </div>
+  </div>
+</section>
+<section class="sec"><div class="sec-in"><div class="two-col">
+  <div>
+    <div class="stag text-gn">Group Dashboard</div><h2>Shakti Mahila SHG, Varanasi</h2>
+    <div class="panel mt-16">
+      <div class="panel-header panel-header--gn"><div class="panel-header-title">12 members · Month 8 · ₹500/week each</div></div>
+      <div class="panel-body">
+        <div class="calc-grid mb-14">
+          <div class="mini-stat mini-stat--gn"><div class="mini-label mini-label--gn">Group savings</div><div class="mini-value mini-value--gn" id="ss">₹1,92,000</div></div>
+          <div class="mini-stat" style="background:var(--nv-p)"><div class="mini-label" style="color:var(--nv)">Loan eligibility</div><div class="mini-value" style="color:var(--nv)" id="sl">₹5,76,000</div></div>
+        </div>
+        <div class="ft mb-8">This week — savings</div>
+        <div id="smem"></div>
+        <div class="flex flex-wrap gap-6 mt-10">
+          <button class="btn btn-g btn-sm">Record savings</button>
+          <button class="btn btn-n btn-sm">Apply for loan</button>
+          <button class="btn btn-s btn-sm">UPI collect</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="stag text-gn">Savings Calculator</div><h2>Plan your group's growth</h2>
+    <div class="panel mt-16">
+      <div class="panel-body">
+        <div class="ig"><label>Members</label><input type="range" min="5" max="20" value="12" step="1" id="sm" oninput="calcS()"><div class="ft mt-4" id="smv">12 members</div></div>
+        <div class="ig"><label>Weekly contribution per member</label><input type="range" min="100" max="1000" value="500" step="50" id="sc" oninput="calcS()"><div class="ft mt-4 text-gn" id="scv">₹500 / week</div></div>
+        <div class="ig"><label>Months active</label><input type="range" min="3" max="36" value="8" step="1" id="smo" oninput="calcS()"><div class="ft mt-4" id="smov">8 months</div></div>
+        <div class="calc-grid mt-8">
+          <div class="calc-tile--bg"><div class="calc-label">Total savings pot</div><div class="calc-value calc-value--gn" id="sp">₹1,92,000</div></div>
+          <div class="calc-tile--bg"><div class="calc-label">NABARD loan eligibility</div><div class="calc-value calc-value--nv" id="slc">₹5,76,000</div></div>
+          <div class="calc-tile--bg"><div class="calc-label">Per member saved</div><div class="calc-value calc-value--ink" id="spm">₹16,000</div></div>
+          <div class="calc-tile--bg"><div class="calc-label">Weekly total collection</div><div class="calc-value calc-value--ink" id="swk">₹6,000</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-g">Register Your SHG</button></div>
+  </div>
+</div></div></section>
+<script>
+const MBS=[{i:'SD',n:'Savitri Devi',p:true},{i:'PK',n:'Pushpa Kumari',p:true},{i:'RD',n:'Rani Devi',p:false},{i:'MK',n:'Meena Kumari',p:true},{i:'GD',n:'Geeta Devi',p:true}];
+function buildMem(){const g=document.getElementById('smem');MBS.forEach(m=>{const d=document.createElement('div');d.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--i15);font-size:12px';d.innerHTML=`<div style="width:28px;height:28px;border-radius:50%;background:${m.p?'var(--gn-p)':'#FFF8E1'};color:${m.p?'var(--gn)':'var(--am)'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0">${m.i}</div><div style="flex:1;color:var(--ink)">${m.n}</div><div style="font-weight:500;color:${m.p?'var(--gn)':'var(--am)'}">${m.p?'₹500':'₹0'}</div><span class="bdg" style="background:${m.p?'var(--gn-p)':'#FFF8E1'};color:${m.p?'var(--gn)':'var(--am)'}">${m.p?'Paid':'Due'}</span>`;g.appendChild(d);});}
+function calcS(){const m=+document.getElementById('sm').value,c=+document.getElementById('sc').value,mo=+document.getElementById('smo').value;document.getElementById('smv').textContent=m+' members';document.getElementById('scv').textContent='₹'+c+' / week';document.getElementById('smov').textContent=mo+' months';const w=Math.round(mo*4.33),pot=m*c*w,per=Math.round(pot/m),loan=pot*3,wk=m*c;document.getElementById('sp').textContent='₹'+pot.toLocaleString('en-IN');document.getElementById('slc').textContent='₹'+loan.toLocaleString('en-IN');document.getElementById('spm').textContent='₹'+per.toLocaleString('en-IN');document.getElementById('swk').textContent='₹'+wk.toLocaleString('en-IN');document.getElementById('ss').textContent='₹'+pot.toLocaleString('en-IN');document.getElementById('sl').textContent='₹'+loan.toLocaleString('en-IN');}
+buildMem();calcS();
+</script>
+</div><footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/></svg></div><span class="foot-logo-name">Gram<span>Seva</span> AI</span></div><p>Empowering villages through AI. Built in India, for every Indian village.</p><div class="foot-hi">भारत की आवाज़, AI की शक्ति</div></div>
+      <div class="foot-col"><h4>Services</h4><a href="chatbot.html">AI Chatbot</a><a href="panchayat.html">Panchayat Portal</a><a href="crop.html">Crop AI</a><a href="health.html">Telemedicine</a><a href="legal.html">Legal Aid</a></div>
+      <div class="foot-col"><h4>Features</h4><a href="market.html">Village Marketplace</a><a href="shg.html">SHG Finance</a><a href="schemes.html">Scheme Eligibility</a><a href="disaster.html">Disaster Alerts</a><a href="women.html">Women Safety</a></div>
+      <div class="foot-col"><h4>About</h4><a href="#">Our Mission</a><a href="#">Team</a><a href="#">Investors</a><a href="#">Privacy Policy</a><a href="#">GramSeva.ai</a></div>
+    </div>
+    <div class="foot-bot"><p>© 2025 GramSeva AI · GramSeva.ai · GramSeva.in</p><p>Made with pride in India 🇮🇳</p></div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

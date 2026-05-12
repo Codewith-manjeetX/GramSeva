@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Helplines — GramSeva AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stripe"></div><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/><line x1="10" y1="3" x2="10" y2="17" stroke="white" stroke-width="1"/><line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1"/></svg></div>
+      <div><div class="logo-en">Gram<span>Seva</span> AI</div><div class="logo-hi">भारत की आवाज़, AI की शक्ति</div></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="chatbot.html"><b>AI Chatbot</b></a>
+      <a href="panchayat.html"><b>Panchayat</b></a>
+      <a href="crop.html"><b>Crop AI</b></a>
+      <a href="health.html"><b>Health</b></a>
+      <a href="literacy.html"><b>Literacy</b></a>
+      <a href="market.html"><b>Marketplace</b></a>
+      <a href="disaster.html"><b>Alerts</b></a>
+      <a href="women.html"><b>Women</b></a>
+      <a href="schemes.html"><b>Schemes</b></a>
+      <a href="shg.html"><b>SHG</b></a>
+      <a href="legal.html"><b>Legal Aid</b></a>
+      <a href="emergency.html"><b>Emergency</b></a>
+    </div>
+    <button class="nav-cta" onclick="openModal('download')">Download App</button>
+</nav>
+<div class="page">
+<section class="hero hero--emergency">
+  <div class="hero-inner fu">
+    <span class="bdg bdg--hero-em">24×7 Emergency</span>
+    <h1 class="text-white">Emergency Helplines</h1>
+    <p class="lead lead--white-dimmer">One tap to call — available even without internet in emergency mode. Your GPS location is shared automatically when you press SOS.</p>
+  </div>
+</section>
+<section class="sec sec--dark">
+  <div class="sec-in">
+    <div id="egrid" class="auto-grid-lg"></div>
+    <div class="mt-48 section-divider">
+      <h2 class="text-white mb-24">What to do in common situations</h2>
+      <div class="auto-grid-lg">
+        <div class="card card--dark"><div class="text-white ft mb-8">
+          <span class="bdg bdg--hero">If police refuses to register FIR</span>
+        </div><div class="emergency-note">1. Send written FIR to SP by registered post<br>2. Approach Judicial Magistrate under Sec 156(3)<br>3. Call NALSA free legal aid: 15100<br>4. File online complaint at pgportal.gov.in</div></div>
+
+        <div class="card card--dark"><div class="text-white ft mb-8">
+          <span class="bdg bdg--hero">If you receive an OTP fraud call</span>
+        </div><div class="emergency-note">1. Hang up immediately — no bank asks for OTP<br>2. Call Cyber Crime: 1930<br>3. Check bank account balance immediately<br>4. Block card if needed via 1800 numbers</div></div>
+        
+        <div class="card card--dark"><div class="text-white ft mb-8">
+          <span class="bdg bdg--hero">If MNREGA wages are delayed</span></div><div class="emergency-note">1. File complaint on MNREGA mobile app<br>2. Contact Block Development Officer<br>3. File RTI with Programme Officer<br>4. Call Labour helpline: 1800-11-6090</div></div>
+
+        <div class="card card--dark"><div class="text-white ft mb-8">
+          <span class="bdg bdg--hero">If ration is not delivered</span></div><div class="emergency-note">1. File complaint on NFS portal or Panchayat Portal<br>2. Contact District Supply Officer<br>3. File RTI with PDS department<br>4. Call State Food Helpline</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer-dark">
+  <div class="foot-in">
+    <div class="foot-mini">
+      <p>© 2025 GramSeva AI · GramSeva.ai · GramSeva.in</p>
+      <p>Made with pride in India 🇮🇳</p>
+    </div>
+  </div>
+</footer>
+<script>
+const ED=[{n:'100',t:'Police Emergency',d:'FIR · emergency · crime report',bg:'rgba(12,52,96,0.75)'},{n:'181',t:'Women Helpline',d:'Domestic violence · DV Act help',bg:'rgba(139,26,74,0.75)'},{n:'1098',t:'Child Helpline',d:'POCSO · child protection',bg:'rgba(26,107,60,0.75)'},{n:'1930',t:'Cyber Crime',d:'Online fraud · UPI scam · hacking',bg:'rgba(83,74,183,0.75)'},{n:'1800-11-6090',t:'Labour Helpline',d:'Wage theft · bonded labour · MNREGA',bg:'rgba(186,117,23,0.75)'},{n:'15100',t:'NALSA Legal Aid',d:'Free legal help · 24×7 · all states',bg:'rgba(232,72,12,0.65)'}];
+const g=document.getElementById('egrid');ED.forEach(e=>{const d=document.createElement('div');d.className='emergency-tile';d.style.setProperty('--emergency-bg', e.bg);d.innerHTML=`<div class="stat-num">${e.n}</div><div class="ft text-white mt-4">${e.t}</div><div class="emergency-description">${e.d}</div>`;d.onclick=()=>{if(confirm('Call '+e.t+': '+e.n+'?'))window.location.href='tel:'+e.n.replace(/-/g,'');};g.appendChild(d);});
+</script>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

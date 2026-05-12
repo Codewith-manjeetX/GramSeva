@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop & Weather AI — GramSeva AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stripe"></div><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/><line x1="10" y1="3" x2="10" y2="17" stroke="white" stroke-width="1"/><line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1"/></svg></div>
+      <div><div class="logo-en">Gram<span>Seva</span> AI</div><div class="logo-hi">भारत की आवाज़, AI की शक्ति</div></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="chatbot.html"><b>AI Chatbot</b></a>
+      <a href="panchayat.html"><b>Panchayat</b></a>
+      <a href="crop.html"><b>Crop AI</b></a>
+      <a href="health.html"><b>Health</b></a>
+      <a href="literacy.html"><b>Literacy</b></a>
+      <a href="market.html"><b>Marketplace</b></a>
+      <a href="disaster.html"><b>Alerts</b></a>
+      <a href="women.html"><b>Women</b></a>
+      <a href="schemes.html"><b>Schemes</b></a>
+      <a href="shg.html"><b>SHG</b></a>
+      <a href="legal.html"><b>Legal Aid</b></a>
+      <a href="emergency.html"><b>Emergency</b></a>
+    </div>
+    <button class="nav-cta" onclick="openModal('download')">Download App</button>
+</nav>
+<div class="page">
+<section class="hero hero--crop">
+  <div class="hero-inner fu">
+    <span class="bdg bdg--hero">Agriculture</span>
+    <h1 class="text-white">Crop & Weather AI Advisor</h1>
+    <p class="lead lead--white">Hyperlocal crop advice based on your GPS location, soil type, and block-level weather data from IMD. Pest warnings, mandi prices, and irrigation guidance.</p>
+    <div class="stat-row">
+      <div><div class="stat-num">200+</div><div class="stat-lbl">Crops covered</div></div>
+      <div><div class="stat-num">Block-level</div><div class="stat-lbl">IMD weather data</div></div>
+      <div><div class="stat-num">Live</div><div class="stat-lbl">Mandi prices</div></div>
+    </div>
+  </div>
+</section>
+<section class="sec"><div class="sec-in"><div class="two-col">
+  <div>
+    <div class="stag text-gn">Today's Advisory</div><h2>Ramesh Kumar's farm, Chandpur</h2>
+    <div class="panel mt-16">
+      <div class="panel-header panel-header--gn">
+        <div class="panel-header-title">Paddy · 2.4 acres</div>
+        <div class="panel-header-sub">Varanasi, UP</div>
+      </div>
+      <div class="panel-body">
+        <div class="auto-grid-sm mb-14">
+          <div class="mini-stat mini-stat--gn"><div class="mini-label mini-label--gn">Weather</div><div class="mini-value mini-value--gn">27°C · Cloudy</div><div class="mini-desc">70% humidity · Rain in 3 days</div></div>
+          <div class="mini-stat mini-stat--am"><div class="mini-label mini-label--am">Mandi price</div><div class="mini-value mini-value--am">₹2,183/qtl</div><div class="mini-desc">Varanasi mandi · +₹12</div></div>
+        </div>
+        <div class="info-box--sf-left">
+          <div class="info-box-title info-box-title--sf">Action alert</div>
+          <div class="info-box-body">Apply nitrogen fertiliser in next 2 days before rain. Recommended: 25 kg urea/acre. Brown Plant Hopper risk: low this week.</div>
+        </div>
+        <button class="btn btn-g btn-sm">Get Full Advisory</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="stag text-gn">Features</div><h2>What Crop AI does</h2>
+    <div class="feat-list mt-16">
+      <div class="fi"><div class="fd" style="background:var(--gn)"></div>
+      <div><div class="ft">Hyperlocal weather alerts</div>
+      <div class="fb">Block-level IMD data — daily irrigation advice, rain timing, frost and heatwave warnings via voice notifications.</div></div></div>
+      <div class="fi"><div class="fd" style="background:var(--am)"></div>
+      <div><div class="ft">Pest & disease photo detection</div><div class="fb">Click a photo of your crop leaf — TF Lite vision model identifies 80+ pests/diseases and suggests treatment.</div></div></div>
+      <div class="fi"><div class="fd" style="background:var(--nv)"></div><div><div class="ft">Soil-based recommendations</div><div class="fb">Uses ICAR district soil health card data to recommend fertiliser type, quantity, and timing for your field.</div></div></div>
+      <div class="fi"><div class="fd" style="background:var(--tl)"></div><div><div class="ft">Live mandi prices</div><div class="fb">AGMARKNET API integration — today's price for your crop at the 5 nearest mandis. Know when to sell.</div></div></div>
+      <div class="fi"><div class="fd" style="background:var(--gn)"></div><div><div class="ft">Crop calendar & planning</div><div class="fb">State-wise sowing calendar for 200+ crops. Optimal planting windows based on GPS and historical weather.</div></div></div>
+    </div>
+    <div class="btn-row"><a href="#" class="btn btn-g">Open Crop AI</a><a href="schemes.html" class="btn btn-s">Fasal Bima ↗</a></div>
+  </div>
+</div></div>
+</section>
+
+<!-- AI CROP DISEASE SCANNER -->
+  <section class="disease-section" id="disease-ai">
+    <div class="sec-in">
+
+      <div class="disease-header">
+        <div class="stag-pill"><span></span>AI-Powered Live Analysis</div>
+        <h2>Crop Disease Scanner</h2>
+        <p>Upload or capture a photo of your crop leaf, stem, or fruit. Our AI instantly identifies diseases, pests, and deficiencies with treatment steps.</p>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <!-- Upload area -->
+          <div id="uploadArea">
+            <div class="upload-zone" id="dropZone">
+              <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)">
+              <div class="upload-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <h3>Upload crop photo</h3>
+              <p>Drag and drop or click to browse<br>JPG, PNG, WEBP up to 10 MB</p>
+              <div class="upload-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Best results: clear, close-up photo in daylight
+              </div>
+            </div>
+            <div style="text-align:center">
+              <button class="capture-btn" onclick="document.getElementById('cameraInput').click()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                Open Camera
+              </button>
+              <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="handleFileSelect(event)">
+            </div>
+            <div class="lang-strip">
+              <span class="lang-tag">Hindi</span><span class="lang-tag">Telugu</span><span class="lang-tag">Tamil</span>
+              <span class="lang-tag">Marathi</span><span class="lang-tag">Bengali</span><span class="lang-tag">English</span>
+            </div>
+          </div>
+
+          <!-- Preview -->
+          <div id="previewArea" style="display:none">
+            <div class="img-preview-wrap">
+              <img id="previewImg" src="" alt="Crop preview">
+              <div class="img-preview-overlay">
+                <span class="img-preview-name" id="previewName"></span>
+              </div>
+              <button class="img-change-btn" onclick="resetUpload()">Change Photo</button>
+            </div>
+            <button class="analyse-btn" id="analyseBtn" onclick="analyseImage()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              Analyse for Diseases
+            </button>
+          </div>
+
+          <!-- Result -->
+          <div id="resultArea" style="display:none; margin-top:16px"></div>
+        </div>
+
+        <div>
+          <div class="tips-card">
+            <h3>Photo tips for best results</h3>
+            <div class="tip-item"><div class="tip-icon">&#x2600;&#xFE0F;</div><div class="tip-text"><strong>Natural daylight</strong>Take photo in morning or afternoon sunlight. Avoid harsh shadows and flash.</div></div>
+            <div class="tip-item"><div class="tip-icon">&#x1F50D;</div><div class="tip-text"><strong>Close-up focus</strong>Get within 20-30 cm of the affected leaf, stem, or fruit. Fill the frame.</div></div>
+            <div class="tip-item"><div class="tip-icon">&#x1F343;</div><div class="tip-text"><strong>Show the damage clearly</strong>Capture the discoloration, spots, or wilting area prominently in the center.</div></div>
+            <div class="tip-item"><div class="tip-icon">&#x1F4F1;</div><div class="tip-text"><strong>Keep the camera steady</strong>Tap to focus before clicking. Blurry images reduce detection accuracy.</div></div>
+            <div class="tip-item"><div class="tip-icon">&#x1F33F;</div><div class="tip-text"><strong>Include healthy part too</strong>If possible, show both healthy and diseased portions for better comparison.</div></div>
+          </div>
+
+          <div class="tips-card" style="margin-top:16px">
+            <h3>Crops supported</h3>
+            <div class="crop-chips">
+              <span class="crop-chip">Rice / Paddy</span><span class="crop-chip">Wheat</span>
+              <span class="crop-chip">Cotton</span><span class="crop-chip">Maize</span>
+              <span class="crop-chip">Tomato</span><span class="crop-chip">Potato</span>
+              <span class="crop-chip">Sugarcane</span><span class="crop-chip">Soybean</span>
+              <span class="crop-chip">Groundnut</span><span class="crop-chip">Chilli</span>
+              <span class="crop-chip">Brinjal</span><span class="crop-chip">Onion</span>
+              <span class="crop-chip">Mango</span><span class="crop-chip">Banana</span>
+              <span class="crop-chip">Mustard</span><span class="crop-chip">Pulses</span>
+              <span class="crop-chip">+ 180 more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</div>
+<footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" fill="white"/></svg></div><span class="foot-logo-name">Gram<span>Seva</span> AI</span></div><p>Empowering villages through AI. Built in India, for every Indian village.</p><div class="foot-hi">भारत की आवाज़, AI की शक्ति</div></div>
+      <div class="foot-col"><h4>Services</h4><a href="chatbot.html">AI Chatbot</a><a href="panchayat.html">Panchayat Portal</a><a href="crop.html">Crop AI</a><a href="health.html">Telemedicine</a><a href="legal.html">Legal Aid</a></div>
+      <div class="foot-col"><h4>Features</h4><a href="market.html">Village Marketplace</a><a href="shg.html">SHG Finance</a><a href="schemes.html">Scheme Eligibility</a><a href="disaster.html">Disaster Alerts</a><a href="women.html">Women Safety</a></div>
+      <div class="foot-col"><h4>About</h4><a href="#">Our Mission</a><a href="#">Team</a><a href="#">Investors</a><a href="#">Privacy Policy</a><a href="#">GramSeva.ai</a></div>
+    </div>
+    <div class="foot-bot"><p>© 2025 GramSeva AI · GramSeva.ai · GramSeva.in</p><p>Made with pride in India 🇮🇳</p></div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
